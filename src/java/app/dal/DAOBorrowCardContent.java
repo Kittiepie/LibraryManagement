@@ -134,4 +134,14 @@ public class DAOBorrowCardContent extends DBContext {
             Logger.getLogger(DAOBorrowCardContent.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void deleteBorrowCard(int borrowCardId) {
+        String sql = "DELETE FROM BorrowCardContent WHERE borrowcard_id = ?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, borrowCardId);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

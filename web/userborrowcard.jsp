@@ -61,8 +61,6 @@
         <%@include file="/common/header.jsp" %>
         <%@include file="/common/sidebar.jsp" %>
         <div id="page-container">
-
-
             <div id="content-wrap" class="container">
                 <h4>Your Borrow Cards</h4>
                 <table class="table table-striped">
@@ -76,7 +74,12 @@
                     <tbody>
                         <c:forEach var="borrowCard" items="${borrowCardList}">
                             <tr>
-                                <td>${borrowCard.getBorrowCardId()}</td>
+                                <td>
+                                    ${borrowCard.getBorrowCardId()}
+                                    <c:if test="${borrowCard.getBorrowCardId() == activeBorrowCardId}">
+                                        (active)
+                                    </c:if>
+                                </td>
                                 <td>${borrowCard.getCreateDate()}</td>
                                 <td>
                                     <form action="BorrowCardContentServlet" method="get">

@@ -69,7 +69,9 @@
                 <div class="row g-0 w-100 m-0">
                     <div class="col-lg-4 container">
                         <div style="position: relative" class="w-100 border border-dark" style="width: 100%;">
-                            <img id="img-display" style="width: 100%; max-height: 300px; object-fit: cover" src="UserProfile?service=showPic" alt="Profile picture" />
+                            <img id="img-display" style="width: 100%; max-height: 500px; object-fit: cover" 
+                                 src="UserProfile?service=showPic&uId=<%= uId %>&timestamp=<%= System.currentTimeMillis() %>" 
+                                 alt="Profile picture" />
                             <label id="upload-label" for="upload">Select image</label>
                         </div>
                         <div id="upload-submission">

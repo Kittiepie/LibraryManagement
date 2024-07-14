@@ -62,6 +62,12 @@
         </style>
     </head>
     <body>
+        <% 
+            if (session.getAttribute("userRoleId") == null || (!((Integer)session.getAttribute("userRoleId") == 2 || (Integer)session.getAttribute("userRoleId") == 4))) {
+                session.setAttribute("successMessage", "Not authorized!");
+                response.sendRedirect("./index.jsp");
+            } 
+        %>
         <div class="admin-layout">
             <%@include file="/admin/common/admin-header.jsp" %>
             <%@include file="/admin/common/admin-sidebar.jsp" %>

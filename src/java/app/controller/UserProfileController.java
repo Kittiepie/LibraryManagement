@@ -115,7 +115,7 @@ public class UserProfileController extends HttpServlet {
                 //TODO: add file limit via notice popup
                 //System.out.println(filePart.getInputStream().available());
 
-                System.out.println(filePart.getSize());
+                System.out.println("size: " + filePart.getSize());
                 
                 InputStream ins = filePart.getInputStream();
                 byte[] uploaded = new byte[ins.available()];
@@ -142,6 +142,7 @@ public class UserProfileController extends HttpServlet {
                 try {
                     //If an UID is provided as a paremeter, fetch profile image of the user with that UID instead
                     fetched = dao.getProfileImage(Integer.parseInt(request.getParameter("uId")));
+                    System.out.println(request.getParameter("uId"));
                 } catch (Exception e) {
                     fetched = dao.getProfileImage(uId);
                 }

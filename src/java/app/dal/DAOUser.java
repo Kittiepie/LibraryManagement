@@ -124,7 +124,7 @@ public class DAOUser extends DBContext {
             ResultSet rs = state.executeQuery(sql);
             if (rs.next()) {
                 return new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5),
-                        rs.getInt(6), rs.getString(7), rs.getString(8), rs.getBoolean(9));
+                        rs.getInt(6), rs.getString(7), rs.getString(8), rs.getBoolean(9), rs.getInt(10));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -149,12 +149,13 @@ public class DAOUser extends DBContext {
     }
 
     public byte[] getProfileImage(int id) {
-        String sql = "SELECT * FROM ProfilePicture where UserId = '" + id + "';";
+        String sql = "SELECT Image FROM ProfilePicture WHERE UserId = ?;";
         try {
-            Statement state = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            ResultSet rs = state.executeQuery(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
-                return rs.getBytes(2);
+                return rs.getBytes("Image");
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

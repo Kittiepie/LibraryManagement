@@ -57,7 +57,7 @@ public class CartServlet extends HttpServlet {
 
         if ("add".equals(action)) {
             int bookId = Integer.parseInt(request.getParameter("bookId"));
-            Book book = new DAOBook().getBookById(bookId); // Assuming DAOBook has a method to get a book by ID
+            Book book = new DAOBook().getBookById(bookId);
             cart.add(book);
         } else if ("remove".equals(action)) {
             int bookId = Integer.parseInt(request.getParameter("bookId"));

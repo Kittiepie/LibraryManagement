@@ -45,4 +45,5 @@ public class Config {
         String value = prop.getProperty(key);
         return value == null ? defaultValue : value;
     }
+    
 }

@@ -165,4 +165,14 @@ public class DAOBorrowCard extends DBContext {
 
         return null;
     }
+    
+    public void deleteBorrowCard(int borrowCardId) {
+        String sql = "DELETE FROM BorrowCard WHERE borrowcard_id = ?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, borrowCardId);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

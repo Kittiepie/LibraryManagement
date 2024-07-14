@@ -2,7 +2,7 @@
     <div class="container p-3">
         <div class="row">
             <div class="col-12 col-sm-6">
-                <h4>Library Management</h4>
+                <h4>Kittie Library</h4>
                 <p>Borrow and read all-around-the-world books.</p>
                 <p class="text-secondary">In active development, subject to change</p>
             </div>

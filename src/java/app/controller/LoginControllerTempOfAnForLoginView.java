@@ -45,6 +45,7 @@ public class LoginControllerTempOfAnForLoginView extends HttpServlet {
                 session.setAttribute("userEmail", username);
                 session.setAttribute("userRoleId", user.getRoleId()); //new
                 session.setAttribute("userId",user.getUserId());
+                System.out.println((int)session.getAttribute("userRoleId"));
                 
 //                if (user.getRoleId() == 2 || user.getRoleId() == 3 || user.getRoleId() == 4) { //new
 //                    String ctxPath = request.getServletContext().getContextPath(); //new

@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -62,6 +63,12 @@
         </style>
     </head>
     <body>
+        <% 
+            if (session.getAttribute("userRoleId") == null || (!((Integer)session.getAttribute("userRoleId") == 2 || (Integer)session.getAttribute("userRoleId") == 4))) {
+                session.setAttribute("successMessage", "Not authorized!");
+                response.sendRedirect("./index.jsp");
+            } 
+        %>
         <div class="admin-layout">
             <%@include file="/admin/common/admin-header.jsp" %>
             <%@include file="/admin/common/admin-sidebar.jsp" %>
@@ -92,6 +99,11 @@
                                         <form action="BorrowCardContentServlet" method="get" style="display: inline;">
                                             <input type="hidden" name="borrowCardId" value="${borrowCard.getBorrowCardId()}"/>
                                             <button type="submit" class="btn btn-info">View Details</button>
+                                        </form>
+                                        <form action="DeleteBorrowCardServlet" method="post" style="display: inline;" onsubmit="return confirm('Are you sure you want to delete this borrow card?');">
+                                            <input type="hidden" name="borrowCardId" value="${borrowCard.getBorrowCardId()}"/>
+                                            <input type="hidden" name="userId" value="${user.getUserId()}"/>
+                                            <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>
                                     </td>
                                 </tr>

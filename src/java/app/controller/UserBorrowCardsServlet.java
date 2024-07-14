@@ -42,9 +42,14 @@ public class UserBorrowCardsServlet extends HttpServlet {
         int noOfRecords = daoBorrowCard.getNoOfRecordsByUserId(userId);
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
 
+        // Get the active borrow card
+        BorrowCard activeBorrowCard = daoBorrowCard.getActiveBorrowCardByUserId(userId);
+        int activeBorrowCardId = activeBorrowCard != null ? activeBorrowCard.getBorrowCardId() : -1;
+
         request.setAttribute("borrowCardList", borrowCards);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);
+        request.setAttribute("activeBorrowCardId", activeBorrowCardId);
 
         RequestDispatcher view = request.getRequestDispatcher("userborrowcard.jsp");
         view.forward(request, response);

@@ -51,7 +51,7 @@
 <body>
     <div class="container">
         <h1>Credit</h1>
-        <p>Credit: Le Thanh An (Kittiepie)</p>
+        <p>Credit: Le Thanh An</p>
         <p>If you have any problem, contact me:</p>
         <p>Email: <a href="mailto:thanhanle2711@gmail.com">thanhanle2711@gmail.com</a></p>
         <p>Alternative email: <a href="mailto:kittiepieuwu@gmail.com">kittiepieuwu@gmail.com</a></p>
