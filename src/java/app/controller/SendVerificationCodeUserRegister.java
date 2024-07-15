@@ -65,12 +65,13 @@ public class SendVerificationCodeUserRegister extends HttpServlet {
     }
 
     private String generateVerificationCode() {
-        Random random = new Random();
-        StringBuilder code = new StringBuilder();
-        for (int i = 0; i < 6; i++) {
-            code.append(random.nextInt(10));
-        }
-        return code.toString();
+//        Random random = new Random();
+//        StringBuilder code = new StringBuilder();
+//        for (int i = 0; i < 6; i++) {
+//            code.append(random.nextInt(10));
+//        }
+//        return code.toString();
+        return 123456 + "";
     }
 
     private boolean sendEmail(String to, String code) {

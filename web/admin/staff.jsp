@@ -64,6 +64,7 @@
                                     <td>${user.getMobile()}</td>
                                     <td>
                                         <form action="StaffServlet" method="post">
+                                            <input type="hidden" name="service" value="updateStaffStatus"/>
                                             <input type="hidden" name="userId" value="${user.getUserId()}"/>
                                             <input type="hidden" name="roleId" value="3"/>
                                             <button type="submit" class="btn btn-warning">Set Inactive</button>
@@ -114,6 +115,7 @@
                                     <td>${user.getMobile()}</td>
                                     <td>
                                         <form action="StaffServlet" method="post">
+                                            <input type="hidden" name="service" value="updateStaffStatus"/>
                                             <input type="hidden" name="userId" value="${user.getUserId()}"/>
                                             <input type="hidden" name="roleId" value="2"/>
                                             <button type="submit" class="btn btn-success">Set Active</button>
@@ -148,6 +150,7 @@
                     </div>
                     <div class="modal-body">
                         <form action="StaffServlet" method="post">
+                            <input type="hidden" name="service" value="addStaff"/>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" class="form-control" id="email" name="email" required>
@@ -163,9 +166,8 @@
                             <div class="mb-3">
                                 <label for="gender" class="form-label">Gender</label>
                                 <select class="form-select" id="gender" name="genderId" required>
-                                    <option value="0">Male</option>
-                                    <option value="1">Female</option>
-                                    <option value="2">Other</option>
+                                    <option value="1">Male</option>
+                                    <option value="2">Female</option>
                                 </select>
                             </div>
                             <div class="mb-3">

@@ -206,9 +206,23 @@ public class DAOBook extends DBContext {
             ps.setString(5, book.getBookCover());
             ps.setString(6, book.getBriefInfo());
             ps.setString(7, book.getDescription());
+            System.out.println("Completed");
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+    
+    public void deleteBook(int bookId) {
+        String sql = "DELETE FROM Book WHERE book_id = ?";
+        try (
+             PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, bookId);
+            stmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
 }

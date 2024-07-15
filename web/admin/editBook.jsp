@@ -68,6 +68,7 @@
                     <textarea class="form-control" id="description" name="description" rows="5" required>${book.description}</textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Save Changes</button>
+                <a href="BooksServlet?view=admin" class="btn btn-secondary">Back to Books</a>
             </form>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>

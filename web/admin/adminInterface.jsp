@@ -116,6 +116,7 @@
                                                     <p class="card-text">${book.briefInfo}</p>
                                                     <a href="BookDetailsServlet?view=admin&bookId=${book.bookId}" class="btn btn-primary">View Details</a>
                                                     <a href="EditBookServlet?bookId=${book.bookId}" class="btn btn-secondary">Edit</a>
+                                                    <a href="DeleteBookServlet?bookId=${book.bookId}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this book?');">Delete</a>
                                                 </div>
                                             </div>
                                         </div>

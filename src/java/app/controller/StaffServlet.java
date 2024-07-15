@@ -64,6 +64,16 @@ public class StaffServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String service = request.getParameter("service");
+
+        if ("addStaff".equals(service)) {
+            addStaff(request, response);
+        } else if ("updateStaffStatus".equals(service)) {
+            updateStaffStatus(request, response);
+        }
+    }
+
+    private void addStaff(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String fullName = request.getParameter("fullName");
@@ -74,6 +84,15 @@ public class StaffServlet extends HttpServlet {
         // Add new staff
         User newUser = new User(1, email, password, roleId, fullName, genderId, mobile, "public/images/anonymous-user.webp", true);
         daoUser.addUser(newUser);
+
+        response.sendRedirect("StaffServlet");
+    }
+
+    private void updateStaffStatus(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int userId = Integer.parseInt(request.getParameter("userId"));
+        int roleId = Integer.parseInt(request.getParameter("roleId"));
+
+        daoUser.updateUserRole(userId, roleId);
 
         response.sendRedirect("StaffServlet");
     }

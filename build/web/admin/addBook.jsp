@@ -63,7 +63,7 @@
         </style>
     </head>
     <body>
-        <% 
+         <% 
             if (session.getAttribute("userRoleId") == null || (!((Integer)session.getAttribute("userRoleId") == 2 || (Integer)session.getAttribute("userRoleId") == 4))) {
                 session.setAttribute("successMessage", "Not authorized!");
                 response.sendRedirect("./index.jsp");
@@ -75,7 +75,7 @@
             <main class="admin-main">
                 <div id="page-container">
                     <h2>Add New Book</h2>
-                    <form action="AddBookServlet" method="post" onsubmit="return prepareImageForSubmit();">
+                    <form action="AddBookServlet" method="post">
                         <div class="mb-3">
                             <label for="bookTitle" class="form-label">Book Title</label>
                             <input type="text" class="form-control" id="bookTitle" name="bookTitle" required>

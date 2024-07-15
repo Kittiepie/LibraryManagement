@@ -47,7 +47,8 @@ public class AddBookServlet extends HttpServlet {
         String briefInfo = request.getParameter("briefInfo");
         String description = request.getParameter("description");
 
-        Book book = new Book(0, bookTitle, categoryId, bookStatus, isFeatured, bookCoverBase64, briefInfo, description, null);
+        Book book = new Book(0, bookTitle, categoryId, bookStatus, isFeatured, bookCoverBase64, briefInfo, description);
+        System.out.println(book);
         daoBook.addBook(book);
         response.sendRedirect("BooksServlet?view=admin");
     }
